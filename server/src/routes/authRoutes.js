@@ -1,6 +1,7 @@
 const express = require("express");
 const route = express.Router();
 const User = require("../models/user");
+const Profile = require("../models/profile");
 var jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -30,11 +31,13 @@ route.post("/register", async (req, res) => {
     encryptedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-      name,
       username,
       email: email,
       password: encryptedPassword,
     });
+
+    const profile = new Profile({ name, user: user._id });
+    await profile.save();
 
     res.status(201).json(generateToken(user._id, user.username, user.email));
   } catch (err) {

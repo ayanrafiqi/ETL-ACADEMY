@@ -1,5 +1,4 @@
 import axios from "../utils/axios_client";
-import { setUserDetails } from "../utils/utils";
 import Swal from "sweetalert2";
 
 export const login = (model, cb) => {
@@ -7,6 +6,7 @@ export const login = (model, cb) => {
     .post("/api/login", model)
     .then(({ data }) => cb(data))
     .catch((err) => {
+      console.log(err);
       Swal.fire(err.response.data);
     });
 };

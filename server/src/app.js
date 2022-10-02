@@ -1,14 +1,25 @@
+require("./models/user.js");
+require("./models/profile.js");
+
 require("dotenv").config();
 require("./config/database").connect();
 const express = require("express");
-const requireAuth = require("./middleware/requireAuth");
-const authRoutes = require("./routes/authRoute");
+const swaggerUi = require("swagger-ui-express");
+const authRoutes = require("./routes/authRoutes");
+const profileRoutes = require("./routes/profileRoutes");
+const ratingsRoutes = require("./routes/ratingsRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 const app = express();
 
+app.use(express.static("public/uploads"));
 app.use(express.json());
 
-app.get("/testauth", requireAuth, (req, res) => {
-  res.send(req.user);
-});
+swaggerDocument = require("../swagger.json");
+
 app.use("/api", authRoutes);
+app.use("/api", profileRoutes);
+app.use("/api", ratingsRoutes);
+app.use("/api", feedbackRoutes);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 module.exports = app;

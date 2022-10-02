@@ -2,7 +2,10 @@ import { isExpired } from "react-jwt";
 export const TOKEN_KEY = "etl_access_token";
 
 export const getToken = () => {
-  return localStorage[TOKEN_KEY];
+  let str = localStorage[TOKEN_KEY];
+  if (str) {
+    return JSON.parse(str)?.token;
+  }
 };
 
 export const setToken = (token) => {
@@ -29,4 +32,11 @@ export const logout = () => {
 
 export const isLoggedIn = () => {
   return !isExpired(getToken());
+};
+
+export const apiUrl = "http://localhost:3001/";
+
+export const generateImagePath = (filePath) => {
+  if (filePath) return apiUrl + filePath;
+  return "/logo192.png";
 };
