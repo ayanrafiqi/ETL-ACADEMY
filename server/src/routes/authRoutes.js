@@ -57,7 +57,7 @@ route.post("/login", async (req, res) => {
 
     const user = await User.findOne({ email });
 
-    if (user && (await bcrypt.compare(password, user.password))) {
+    if (user && bcrypt.compare(password, user.password)) {
       res.status(200).json(generateToken(user._id, user.username, user.email));
     }
     res.status(400).send("Invalid Credentials");

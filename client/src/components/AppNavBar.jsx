@@ -31,6 +31,9 @@ function AppNavBar() {
                 <Nav.Link as={Link} to="/courses">
                   Courses
                 </Nav.Link>
+                <Nav.Link as={Link} to="/pinnedCourses">
+                  Pinned Courses
+                </Nav.Link>
                 <Nav.Link as={Link} to="/profile">
                   Profile
                 </Nav.Link>

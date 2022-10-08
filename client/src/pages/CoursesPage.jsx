@@ -1,9 +1,11 @@
 import { useState } from "react";
 import YoutubePlaylist from "../components/youtube/YoutubePlaylist";
 import YoutubeVideo from "../components/youtube/YoutubeVideo";
+import { addSearchHistory } from "../services/searchHistoryService";
 import YTSearch from "../utils/youtube-search";
 const CoursesPage = () => {
-  const apiKey = "AIzaSyCJ88cEAlH8266lXBZYWGib0Bp2aM18cgk";
+  console.log(process.env);
+  const apiKey = process.env.REACT_APP_YOUTUBE_KEY;
 
   const [keyword, setKeyword] = useState("");
   const [videoIds, setVideoIds] = useState([]);
@@ -17,6 +19,8 @@ const CoursesPage = () => {
       else setPlayList(videos);
       setSearched(true);
     });
+
+    addSearchHistory({ keyword, type }, () => {});
   };
 
   const onType = (e) => {
@@ -57,7 +61,7 @@ const CoursesPage = () => {
       </div>
       <div className="mt-5">
         {searched && <h3>Search Result</h3>}
-        {type == "video" ? (
+        {type === "video" ? (
           <div className="row">
             {videoIds.map((videoId) => {
               return (
@@ -70,7 +74,12 @@ const CoursesPage = () => {
         ) : (
           <div>
             {playList.map(({ id, snippet = {} }) => (
-              <YoutubePlaylist snippet={snippet} id={id} key={id.playlistId} />
+              <YoutubePlaylist
+                showPin={true}
+                snippet={snippet}
+                id={id.playlistId}
+                key={id.playlistId}
+              />
             ))}
           </div>
         )}

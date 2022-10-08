@@ -1,4 +1,7 @@
-const YoutubePlaylist = ({ id, snippet }) => {
+import { Link } from "react-router-dom";
+import { pinCourse } from "../../services/pinnedCoursesService";
+
+const YoutubePlaylist = ({ id, snippet, showPin }) => {
   const { title, thumbnails = {}, channelTitle, description } = snippet;
   const { medium } = thumbnails;
   return (
@@ -15,13 +18,21 @@ const YoutubePlaylist = ({ id, snippet }) => {
         <h4>{title}</h4>
         <h6>{channelTitle}</h6>
         <p className="text-truncate">{description}</p>
-        <a
-          href={"https://www.youtube.com/playlist?list=" + id.playlistId}
-          target="_blank"
-          className="text-decoration-none"
-        >
+        <Link to={"/courseDetails/" + id} className="text-decoration-none">
           VIEW FULL PLAYLIST
-        </a>
+        </Link>
+        {showPin && (
+          <div>
+            <a
+              className="text-decoration-none"
+              onClick={() => {
+                pinCourse({ courseId: id.playlistId }, () => {});
+              }}
+            >
+              Pin Course
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

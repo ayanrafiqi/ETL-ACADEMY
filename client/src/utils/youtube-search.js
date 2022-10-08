@@ -3,13 +3,9 @@ import axios from "axios";
 var ROOT_URL = "https://www.googleapis.com/youtube/v3/search";
 
 const YTSearch = (options, callback) => {
-  if (!options.key) {
-    throw new Error("Youtube Search expected key, received undefined");
-  }
-
   var params = {
     part: "snippet",
-    key: options.key,
+    key: process.env.REACT_APP_YOUTUBE_KEY,
     q: options.term,
     type: options.type || "video",
   };
@@ -19,6 +15,64 @@ const YTSearch = (options, callback) => {
     .then(function (response) {
       if (callback) {
         callback(response.data.items);
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+export const getPlaylistItems = (
+  id,
+  callback,
+  pageToken = undefined,
+  maxResults = 10
+) => {
+  const url = "https://youtube.googleapis.com/youtube/v3/playlistItems";
+
+  var params = {
+    part: "contentDetails",
+    playlistId: id,
+    key: process.env.REACT_APP_YOUTUBE_KEY,
+    maxResults,
+  };
+
+  if (pageToken) params.pageToken = pageToken;
+
+  axios
+    .get(url, { params: params })
+    .then(function (response) {
+      if (callback) {
+        callback(response.data);
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+export const getPlaylists = (
+  ids,
+  callback,
+  pageToken = undefined,
+  maxResults = 5
+) => {
+  const url = "https://youtube.googleapis.com/youtube/v3/playlists";
+
+  var params = {
+    part: "snippet",
+    id: ids.join(","),
+    key: process.env.REACT_APP_YOUTUBE_KEY,
+    maxResults,
+  };
+
+  if (pageToken) params.pageToken = pageToken;
+
+  axios
+    .get(url, { params: params })
+    .then(function (response) {
+      if (callback) {
+        callback(response.data);
       }
     })
     .catch(function (error) {
