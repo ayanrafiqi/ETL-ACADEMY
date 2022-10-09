@@ -9,7 +9,6 @@ const AllFeedbacksPage = () => {
   useEffect(() => {
     getAllFeedbacks(setFeedbacks);
   }, []);
-  console.log(feedbacks);
   return (
     <div>
       <h2>Feedbacks</h2>
