@@ -26,7 +26,7 @@ const YoutubePlaylist = ({ id, snippet, showPin }) => {
             <a
               className="text-decoration-none"
               onClick={() => {
-                pinCourse({ courseId: id.playlistId }, () => {});
+                pinCourse({ courseId: id }, () => {});
               }}
             >
               Pin Course

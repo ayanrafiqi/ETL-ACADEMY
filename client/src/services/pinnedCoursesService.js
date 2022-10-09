@@ -23,3 +23,14 @@ export const getPinnedCourses = (cb) => {
       Swal.fire(err.response.data);
     });
 };
+
+export const getPinnedCoursesByUserId = (id, cb) => {
+  axios
+    .get("/api/pinnedCoursesByUserId/" + id)
+    .then(({ data }) => {
+      cb(data);
+    })
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};

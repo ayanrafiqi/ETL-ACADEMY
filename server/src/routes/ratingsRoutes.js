@@ -3,9 +3,15 @@ const route = express.Router();
 const Ratings = require("../models/ratings");
 const Feedback = require("../models/feedback");
 const requireAuth = require("../middleware/requireAuth");
+const adminRequireAuth = require("../middleware/adminRequireAuth");
 
 route.get("/myratings", requireAuth, async (req, res) => {
   let ratings = await Ratings.findOne({ user: req.user.userId });
+  return res.send(ratings);
+});
+
+route.get("/ratingsByUserId/:userId", adminRequireAuth, async (req, res) => {
+  let ratings = await Ratings.findOne({ user: req.params.userId });
   return res.send(ratings);
 });
 

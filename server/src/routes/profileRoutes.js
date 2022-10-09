@@ -1,6 +1,7 @@
 const express = require("express");
 const route = express.Router();
 const Profile = require("../models/profile");
+const User = require("../models/user");
 const requireAuth = require("../middleware/requireAuth");
 
 const multer = require("multer");
@@ -8,6 +9,7 @@ const path = require("path");
 
 const fs = require("fs");
 const { promisify } = require("util");
+const adminRequireAuth = require("../middleware/adminRequireAuth");
 
 const unlinkAsync = promisify(fs.unlink);
 
@@ -17,6 +19,25 @@ route.get("/profile", requireAuth, async (req, res) => {
     "email"
   );
   return res.send(profile);
+});
+
+route.get("/userDetails/:id", adminRequireAuth, async (req, res) => {
+  let profile = await Profile.findOne({ user: req.params.id });
+  let user = await User.findOne({ _id: req.params.id });
+  let result = {
+    name: profile.name,
+    department: profile.department,
+    cls: profile.cls,
+    address: profile.address,
+    contactNo: profile.contactNo,
+    dpPath: profile.dpPath,
+    userId: user._id,
+    email: user.email,
+    role: user.role,
+    username: user.username,
+    status: user.status,
+  };
+  return res.send(result);
 });
 
 route.put("/profile", requireAuth, async (req, res) => {

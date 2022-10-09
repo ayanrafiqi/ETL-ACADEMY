@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import AllFeedbacksPage from "../pages/AllFeedbacksPage";
 import CourseDetailsPage from "../pages/CourseDetailsPage";
 import CoursesPage from "../pages/CoursesPage";
 import HomePage from "../pages/HomePage";
@@ -7,13 +8,31 @@ import MyFeedbackPage from "../pages/MyFeedbackPage";
 import PinnedCoursesPage from "../pages/PinnedCoursesPage";
 import ProfilePage from "../pages/ProfilePage";
 import SignupPage from "../pages/SignupPage";
-import { ProtectedRoute } from "./ProtectedRoute";
+import UserDetailsPage from "../pages/UserDetailsPage";
+import UsersPage from "../pages/UsersPage";
+import { AdminRoute } from "./Route/AdminRoute";
+import { ProtectedRoute } from "./Route/ProtectedRoute";
+import { PublicRoute } from "./Route/PublicRoute";
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
+      <Route
+        path="/login"
+        element={
+          <PublicRoute>
+            <LoginPage />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/signup"
+        element={
+          <PublicRoute>
+            <SignupPage />
+          </PublicRoute>
+        }
+      />
       <Route
         element={
           <ProtectedRoute>
@@ -61,6 +80,30 @@ const AppRouter = () => {
           <ProtectedRoute>
             <CourseDetailsPage />
           </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/allfeedbacks"
+        element={
+          <AdminRoute>
+            <AllFeedbacksPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/users"
+        element={
+          <AdminRoute>
+            <UsersPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/userdetails/:id"
+        element={
+          <AdminRoute>
+            <UserDetailsPage />
+          </AdminRoute>
         }
       />
     </Routes>

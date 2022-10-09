@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from "react";
-import { isExpired } from "react-jwt";
+import { decodeToken, isExpired } from "react-jwt";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { TOKEN_KEY } from "../utils/utils";
@@ -25,9 +25,16 @@ export const AuthProvider = ({ children }) => {
     return !isExpired(user?.token);
   };
 
+  const isAdmin = () => {
+    if (!isAuthenticated()) return false;
+    const payload = decodeToken(user?.token);
+    return payload.role == "Admin";
+  };
+
   const value = useMemo(
     () => ({
       user,
+      isAdmin,
       login,
       logout,
       isAuthenticated,

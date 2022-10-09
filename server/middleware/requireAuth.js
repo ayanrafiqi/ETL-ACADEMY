@@ -29,7 +29,6 @@ module.exports = (req, res, next) => {
 
   jwt.verify(token, "process.env.TOKEN_KEY", async (err, payload) => {
     if (err) return res.status(401).send("you must be Logged in.");
-    console.log(payload);
     const { userId, email } = payload;
     req.user = { userId, email };
     next();

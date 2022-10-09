@@ -2,11 +2,21 @@ const express = require("express");
 const route = express.Router();
 const PinnedCourses = require("../models/pinnedCourses");
 const requireAuth = require("../middleware/requireAuth");
+const adminRequireAuth = require("../middleware/adminRequireAuth");
 
 route.get("/pinnedCourses", requireAuth, async (req, res) => {
   let courses = await PinnedCourses.find({ user: req.user.userId });
   return res.send(courses);
 });
+
+route.get(
+  "/pinnedCoursesByUserId/:userId",
+  adminRequireAuth,
+  async (req, res) => {
+    let courses = await PinnedCourses.find({ user: req.params.userId });
+    return res.send(courses);
+  }
+);
 
 route.post("/pinnedCourses", requireAuth, async (req, res) => {
   const { courseId } = req.body;

@@ -4,6 +4,8 @@ const User = require("../models/user");
 const Profile = require("../models/profile");
 var jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const app = require("../app");
+const adminRequireAuth = require("../middleware/adminRequireAuth");
 
 route.post("/register", async (req, res) => {
   try {
@@ -33,16 +35,33 @@ route.post("/register", async (req, res) => {
     const user = await User.create({
       username,
       email: email,
+      status: "Active",
+      role: "Student",
       password: encryptedPassword,
     });
 
     const profile = new Profile({ name, user: user._id });
     await profile.save();
 
-    res.status(201).json(generateToken(user._id, user.username, user.email));
+    res.status(201).json(generateToken(user));
   } catch (err) {
     console.log(err);
   }
+});
+
+route.put("/changeUserStatus", adminRequireAuth, async (req, res) => {
+  let { userId, status } = req.body;
+  let user = await User.findOne({ _id: userId });
+  if (!user) return res.status(400).send("Invalid User Id");
+
+  user.status = status;
+  user.save();
+  return res.status(200).send("Status changed successfully");
+});
+
+route.get("/users", adminRequireAuth, async (_, res) => {
+  let users = await User.find({});
+  return res.status(200).send(users);
 });
 
 route.post("/login", async (req, res) => {
@@ -57,24 +76,35 @@ route.post("/login", async (req, res) => {
 
     const user = await User.findOne({ email });
 
-    if (user && bcrypt.compare(password, user.password)) {
-      res.status(200).json(generateToken(user._id, user.username, user.email));
-    }
-    res.status(400).send("Invalid Credentials");
+    if (!user || !bcrypt.compare(password, user.password))
+      return res.status(400).send("Invalid Credentials");
+
+    if (user.status == "Blocked")
+      return res
+        .status(400)
+        .send("Your account has been blocked, please contact adminstrator");
+
+    return res.status(200).json(generateToken(user));
   } catch (err) {
     console.log(err);
   }
 });
 
-generateToken = (id, username, email) => {
-  const token = jwt.sign({ userId: id, email }, process.env.JWT_SECRET, {
-    expiresIn: "2h",
-  });
+generateToken = (user) => {
+  const token = jwt.sign(
+    { userId: user._id, email: user.email, role: user.role },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "2h",
+    }
+  );
   return {
-    id,
-    email,
-    username,
+    id: user._id,
+    email: user.email,
+    username: user.username,
     token,
+    role: user.role,
+    status: user.status,
   };
 };
 

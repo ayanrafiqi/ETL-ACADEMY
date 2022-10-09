@@ -22,6 +22,15 @@ export const getRatings = (cb) => {
     });
 };
 
+export const getRatingsByUserId = (id, cb) => {
+  axios
+    .get("/api/ratingsByUserId/" + id)
+    .then(({ data }) => cb(data))
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
 export const addFeedback = (model, cb) => {
   axios
     .put("/api/feedback", model)
@@ -34,6 +43,24 @@ export const addFeedback = (model, cb) => {
 export const getMyFeedbacks = (cb) => {
   axios
     .get("/api/myFeedbacks")
+    .then(({ data }) => cb(data))
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
+export const getAllFeedbacks = (cb) => {
+  axios
+    .get("/api/allFeedbacks")
+    .then(({ data }) => cb(data))
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
+export const getFeedbacksByUserId = (id, cb) => {
+  axios
+    .get("/api/feedbacksByUserId/" + id)
     .then(({ data }) => cb(data))
     .catch((err) => {
       Swal.fire(err.response.data);

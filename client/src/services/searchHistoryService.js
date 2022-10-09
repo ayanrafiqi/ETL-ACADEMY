@@ -22,3 +22,14 @@ export const getSearchHistory = (cb) => {
       Swal.fire(err.response.data);
     });
 };
+
+export const getSearchHistoryByUserId = (id, cb) => {
+  axios
+    .get("/api/searchHistoryByUserId/" + id)
+    .then(({ data }) => {
+      cb(data);
+    })
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};

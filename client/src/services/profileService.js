@@ -25,6 +25,17 @@ export const getProfile = (cb) => {
     });
 };
 
+export const getUserDetails = (id, cb) => {
+  axios
+    .get("/api/userDetails/" + id)
+    .then(({ data }) => {
+      cb(data);
+    })
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
 export const uploadDp = (file, setImagePath) => {
   const formData = new FormData();
   formData.append("file", file);

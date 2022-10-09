@@ -2,3 +2,22 @@
   width: 100px;
   height: 100px;
 }
+
+.lbl {
+  height: 40px;
+  font-weight: 600;
+  align-items: center;
+  font-size: 18px;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.lbl-val {
+  height: 40px;
+  background-color: rgb(30, 144, 255, 0.2);
+  border-left: 6px solid dodgerblue !important;
+  align-items: center;
+  font-size: 16px;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

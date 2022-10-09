@@ -2,11 +2,21 @@ const express = require("express");
 const route = express.Router();
 const SearchHistory = require("../models/searchHistory");
 const requireAuth = require("../middleware/requireAuth");
+const adminRequireAuth = require("../middleware/adminRequireAuth");
 
 route.get("/searchHistory", requireAuth, async (req, res) => {
   let history = await SearchHistory.find({ user: req.user.userId });
   return res.send(history);
 });
+
+route.get(
+  "/searchHistoryByUserId/:userId",
+  adminRequireAuth,
+  async (req, res) => {
+    let history = await SearchHistory.find({ user: req.params.userId });
+    return res.send(history);
+  }
+);
 
 route.post("/searchHistory", requireAuth, async (req, res) => {
   const { keyword, type } = req.body;

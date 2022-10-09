@@ -20,3 +20,21 @@ export const signup = (model, cb) => {
       Swal.fire(err.response.data);
     });
 };
+
+export const changeUserStatus = (model, cb) => {
+  axios
+    .put("/api/changeUserStatus", model)
+    .then(({ data }) => cb(data))
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
+export const getUsers = (cb) => {
+  axios
+    .get("/api/users")
+    .then(({ data }) => cb(data))
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};

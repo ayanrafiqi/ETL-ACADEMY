@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import YoutubePlaylist from "../components/youtube/YoutubePlaylist";
-import { getPinnedCourses } from "../services/pinnedCoursesService";
-import { getPlaylists } from "../utils/youtube-search";
+import YoutubePlaylist from "../youtube/YoutubePlaylist";
+import { getPinnedCoursesByUserId } from "../../services/pinnedCoursesService";
+import { getPlaylists } from "../../utils/youtube-search";
 
-const PinnedCoursesPage = () => {
+const UserPinnedCourses = ({ id }) => {
   const [data, setData] = useState({ items: [] });
   useEffect(() => {
-    getPinnedCourses((data) => {
+    getPinnedCoursesByUserId(id, (data) => {
       if (data.length > 0) {
         getPlaylists(
           data.map((x) => x.courseId),
@@ -32,4 +32,4 @@ const PinnedCoursesPage = () => {
   );
 };
 
-export default PinnedCoursesPage;
+export default UserPinnedCourses;

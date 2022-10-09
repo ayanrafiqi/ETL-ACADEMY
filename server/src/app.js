@@ -3,6 +3,7 @@ require("./models/profile.js");
 
 require("dotenv").config();
 require("./config/database").connect();
+require("./config/seedUser").seedAdminUser();
 const express = require("express");
 const swaggerUi = require("swagger-ui-express");
 const authRoutes = require("./routes/authRoutes");

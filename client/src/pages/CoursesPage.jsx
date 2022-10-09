@@ -4,7 +4,6 @@ import YoutubeVideo from "../components/youtube/YoutubeVideo";
 import { addSearchHistory } from "../services/searchHistoryService";
 import YTSearch from "../utils/youtube-search";
 const CoursesPage = () => {
-  console.log(process.env);
   const apiKey = process.env.REACT_APP_YOUTUBE_KEY;
 
   const [keyword, setKeyword] = useState("");
