@@ -8,6 +8,10 @@ route.get("/searchHistory", requireAuth, async (req, res) => {
   let history = await SearchHistory.find({ user: req.user.userId });
   return res.send(history);
 });
+route.delete("/searchHistory/:id",requireAuth ,async(req,res)=>{
+   await SearchHistory.deleteOne({_id:req.params.id});
+   return res.send("Deleted Succesfully");
+})
 
 route.get(
   "/searchHistoryByUserId/:userId",
@@ -35,5 +39,6 @@ route.post("/searchHistory", requireAuth, async (req, res) => {
     return res.status(400).send(error);
   }
 });
+
 
 module.exports = route;

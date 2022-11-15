@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   // call this function when you want to authenticate the user
   const login = async (data) => {
     setUser(data);
-    navigate("/");
+    navigate("/courses");
   };
 
   // call this function to sign out logged in user
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   const isAdmin = () => {
     if (!isAuthenticated()) return false;
     const payload = decodeToken(user?.token);
-    return payload.role == "Admin";
+    return payload.role === "Admin";
   };
 
   const value = useMemo(

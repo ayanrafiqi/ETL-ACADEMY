@@ -3,11 +3,22 @@ const route = express.Router();
 const PinnedCourses = require("../models/pinnedCourses");
 const requireAuth = require("../middleware/requireAuth");
 const adminRequireAuth = require("../middleware/adminRequireAuth");
+const pinnedCourses = require("../models/pinnedCourses");
 
 route.get("/pinnedCourses", requireAuth, async (req, res) => {
   let courses = await PinnedCourses.find({ user: req.user.userId });
   return res.send(courses);
 });
+route.get("/recommendedCourses", async (req, res) => {
+  let courses = await PinnedCourses.find().limit(3);
+  return res.send(courses);
+});
+
+route.delete("/pinnedCourses/:id", requireAuth ,async(req,res)=>{
+  await pinnedCourses.deleteOne({_id:req.params.id});
+  return res.send("Deleted Succesfully");
+})
+
 
 route.get(
   "/pinnedCoursesByUserId/:userId",

@@ -23,6 +23,19 @@ export const getSearchHistory = (cb) => {
     });
 };
 
+export const deleteSearchHistory = (id, cb) => {
+  axios
+    .delete("/api/searchHistory/" + id)
+    .then(() => {
+      cb();
+      Swal.fire("delete successfully");
+    })
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
+
 export const getSearchHistoryByUserId = (id, cb) => {
   axios
     .get("/api/searchHistoryByUserId/" + id)

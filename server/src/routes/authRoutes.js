@@ -4,7 +4,7 @@ const User = require("../models/user");
 const Profile = require("../models/profile");
 var jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const app = require("../app");
+//const app = require("../app");
 const adminRequireAuth = require("../middleware/adminRequireAuth");
 
 route.post("/register", async (req, res) => {
@@ -15,7 +15,7 @@ route.post("/register", async (req, res) => {
       res.status(400).send("All fields is required");
     }
 
-    email = email.toLowerCase();
+    email = email.toLowerCase();     
     username = username.toLowerCase();
 
     const emailExists = await User.findOne({ email });
@@ -30,7 +30,7 @@ route.post("/register", async (req, res) => {
       return res.status(409).send("Username Already Exist. Please Login");
     }
 
-    encryptedPassword = await bcrypt.hash(password, 10);
+    encryptedPassword = await bcrypt.hash(password,10);
 
     const user = await User.create({
       username,
@@ -95,7 +95,7 @@ generateToken = (user) => {
     { userId: user._id, email: user.email, role: user.role },
     process.env.JWT_SECRET,
     {
-      expiresIn: "2h",
+      expiresIn: "2h"
     }
   );
   return {

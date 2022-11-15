@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useAuth } from "../contexts/AuthContext";
 import { login } from "../services/authService";
 
+
 const LoginPage = () => {
   const [model, setModel] = useState({
     email: "",
@@ -13,8 +14,8 @@ const LoginPage = () => {
   const auth = useAuth();
 
   return (
-    <div>
-      <Form
+    <div className="container">
+      <Form className="form"
         onSubmit={(e) => {
           e.preventDefault();
           login(model, auth.login);
@@ -51,7 +52,7 @@ const LoginPage = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember Me" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="button" variant="primary" type="submit">
           Login
         </Button>
       </Form>

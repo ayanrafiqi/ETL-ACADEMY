@@ -4,6 +4,8 @@ import YoutubePlaylist from "../components/youtube/YoutubePlaylist";
 import { getPinnedCourses } from "../services/pinnedCoursesService";
 import { getPlaylists } from "../utils/youtube-search";
 
+//import Button from "react-bootstrap/Button";
+
 const PinnedCoursesPage = () => {
   const [data, setData] = useState({ items: [] });
   useEffect(() => {
@@ -20,12 +22,15 @@ const PinnedCoursesPage = () => {
   }, []);
   return (
     <div>
-      <h2>Pinned Courses</h2>
+      <h2>My Playlist</h2>
       {data.items && (
         <div>
           {data.items.map(({ id, snippet = {} }) => (
             <YoutubePlaylist snippet={snippet} id={id} key={id} />
-          ))}
+            
+          ))
+          }
+
         </div>
       )}
     </div>

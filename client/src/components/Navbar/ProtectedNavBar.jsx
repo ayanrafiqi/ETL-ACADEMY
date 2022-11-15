@@ -21,10 +21,13 @@ function ProtectedNavBar() {
               Courses
             </Nav.Link>
             <Nav.Link as={Link} to="/pinnedCourses">
-              Pinned Courses
+              PlayLists
             </Nav.Link>
             <Nav.Link as={Link} to="/profile">
               Profile
+            </Nav.Link>
+            <Nav.Link as={Link} to="/mySearchHistory">
+              Search History
             </Nav.Link>
             <Nav.Link as={Link} to="/myfeedback">
               Feedback

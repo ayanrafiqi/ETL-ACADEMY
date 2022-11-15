@@ -19,7 +19,7 @@ app.use(express.json());
 
 swaggerDocument = require("../swagger.json");
 
-app.use("/api", authRoutes);
+app.use("/api", authRoutes);   
 app.use("/api", profileRoutes);
 app.use("/api", ratingsRoutes);
 app.use("/api", feedbackRoutes);

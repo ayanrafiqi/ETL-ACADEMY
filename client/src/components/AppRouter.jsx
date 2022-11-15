@@ -5,9 +5,11 @@ import CoursesPage from "../pages/CoursesPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import MyFeedbackPage from "../pages/MyFeedbackPage";
+import MySearchHistoryPage from "../pages/MySearchHistoryPage";
 import PinnedCoursesPage from "../pages/PinnedCoursesPage";
 import ProfilePage from "../pages/ProfilePage";
 import SignupPage from "../pages/SignupPage";
+import Temporary from "../pages/Temporary";
 import UserDetailsPage from "../pages/UserDetailsPage";
 import UsersPage from "../pages/UsersPage";
 import { AdminRoute } from "./Route/AdminRoute";
@@ -16,7 +18,9 @@ import { PublicRoute } from "./Route/PublicRoute";
 
 const AppRouter = () => {
   return (
+  
     <Routes>
+    <Route path="/temp"element ={<Temporary/>}/>
       <Route
         path="/login"
         element={
@@ -35,9 +39,9 @@ const AppRouter = () => {
       />
       <Route
         element={
-          <ProtectedRoute>
+          <PublicRoute>
             <HomePage />
-          </ProtectedRoute>
+          </PublicRoute>
         }
         path="/"
       />
@@ -63,6 +67,14 @@ const AppRouter = () => {
         element={
           <ProtectedRoute>
             <MyFeedbackPage />
+          </ProtectedRoute>
+        }
+      />
+        <Route
+        path="/mySearchHistory"
+        element={
+          <ProtectedRoute>
+            <MySearchHistoryPage />
           </ProtectedRoute>
         }
       />

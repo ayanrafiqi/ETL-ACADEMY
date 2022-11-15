@@ -4,6 +4,7 @@ import { pinCourse } from "../../services/pinnedCoursesService";
 const YoutubePlaylist = ({ id, snippet, showPin }) => {
   const { title, thumbnails = {}, channelTitle, description } = snippet;
   const { medium } = thumbnails;
+  const emptyUrl = "";
   return (
     <div className="mb-3 row">
       <div className="col-md-4">
@@ -23,9 +24,10 @@ const YoutubePlaylist = ({ id, snippet, showPin }) => {
         </Link>
         {showPin && (
           <div>
-            <a
-              className="text-decoration-none"
-              onClick={() => {
+            <a href= {emptyUrl}
+              className="text-decoration-none" 
+              onClick={(e) => {
+                e.preventDefault()
                 pinCourse({ courseId: id }, () => {});
               }}
             >
