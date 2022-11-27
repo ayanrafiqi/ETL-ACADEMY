@@ -1,8 +1,10 @@
+import "../css/login-style.css";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useAuth } from "../contexts/AuthContext";
 import { login } from "../services/authService";
+
 
 
 const LoginPage = () => {
@@ -15,16 +17,19 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <Form className="form"
+   
+      <Form className="form" 
         onSubmit={(e) => {
           e.preventDefault();
           login(model, auth.login);
         }}
       >
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+       <h4 className="text-center mx-2" style={{marginTop:"5px" ,fontFamily:"serif", fontWeight:"bold"}}>Please login to continue</h4>
+        <Form.Group className="email" controlId="formBasicEmail">
+          <Form.Label style={{marginTop:"30px"}}>Email address</Form.Label>
           <Form.Control
             type="email"
+            className="email"
             required
             placeholder="Enter email"
             value={model.email}
@@ -37,9 +42,10 @@ const LoginPage = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="password" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            className="password"
             type="password"
             required
             placeholder="Password"

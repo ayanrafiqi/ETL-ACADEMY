@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useAuth } from "../contexts/AuthContext";
 import { signup } from "../services/authService";
+import  "../css/signup-syle.css";
 
 const SignupPage = () => {
   const [model, setModel] = useState({
@@ -15,16 +16,17 @@ const SignupPage = () => {
   const auth = useAuth();
 
   return (
-    <div>
-      <h2 className="text-center mx-2">Sign up</h2>
-      <Form
+    <div className="container">
+      
+      <Form 
         onSubmit={(e) => {
           e.preventDefault();
           signup(model, auth.login);
         }}
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+        <h5 style={{ marginTop:"0px",fontFamily:"serif",fontWeight:"bold", color:"lightorange"}}> Create your account to get started      </h5>
+          <Form.Label style={{marginTop:"25px"}}>Email address</Form.Label>
           <Form.Control
             type="email"
             required

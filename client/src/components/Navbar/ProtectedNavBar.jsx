@@ -4,24 +4,38 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
+
 function ProtectedNavBar() {
   const { logout, isAdmin } = useAuth();
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="light" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            ETL Academy
+          <h1 class="logo me-auto">
+              ETL ACADEMY
+              <span
+                style={{
+                  textTransform: "lowercase",
+                  color: "black",
+                  fontSize: "medium",
+                  fontWeight: "600",
+                }}
+              >
+                
+                Easy to learn
+              </span>
+             </h1>
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
             <Nav.Link as={Link} to="/courses">
-              Courses
+              Search Course
             </Nav.Link>
             <Nav.Link as={Link} to="/pinnedCourses">
-              PlayLists
+              Playlist
             </Nav.Link>
             <Nav.Link as={Link} to="/profile">
               Profile

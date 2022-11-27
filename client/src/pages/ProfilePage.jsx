@@ -49,6 +49,7 @@ const ProfilePage = () => {
             }}
           />
           <Button
+            style={{ position: "absolute", left: "27%" }}
             variant="primary"
             type="submit"
             className="mt-2"
@@ -60,6 +61,7 @@ const ProfilePage = () => {
       </div>
 
       <Form
+        className="profile"
         onSubmit={(e) => {
           e.preventDefault();
           updateProfile(data, () => {

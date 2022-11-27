@@ -8,18 +8,19 @@ import "../assets/vendor/bootstrap-icons/bootstrap-icons.css";
 import "../assets/vendor/boxicons/css/boxicons.min.css";
 import "../assets/vendor/remixicon/remixicon.css";
 import "../assets/vendor/swiper/swiper-bundle.min.css";
+import Testimonials from "../components/Home/Testomonials";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home-page">
       <section
         id="hero"
         class="d-flex justify-content-center align-items-center"
       >
         <div
           class="container position-relative"
-          data-aos="zoom-in"
-          data-aos-delay="100"
+          dataAos="zoom-in"
+          dataAosDelay="100"
         >
           <h1>
             Learning Today,
@@ -35,8 +36,8 @@ const HomePage = () => {
 
       <main id="main">
         <section id="about" class="about">
-          <div class="container" data-aos="fade-up">
-            <div class="row">
+          <div className="container" data-aos="fade-up">
+            <div className="row">
               <div
                 class="col-lg-6 order-1 order-lg-2"
                 data-aos="fade-left"
@@ -71,17 +72,18 @@ const HomePage = () => {
         </section>
 
         <section id="why-us" class="why-us">
-          <div class="container" data-aos="fade-up">
+          <div className="container" data-aos="fade-up">
             <div class="row">
               <div class="col-lg-4 d-flex align-items-stretch">
-                <div class="content">
+                <div className="content">
                   <h3>Why Choose ETL Academy?</h3>
                   <p>
-                    Comprehensive, yet still concise. Decent-paced, just for
-                    not-a-beginner
+                    Comprehensive, yet still concise. Decent-paced, No ads, No
+                    disruption to the flow of information to a student. free
+                    courses you like to concentrate on
                   </p>
-                  <div class="text-center">
-                    <a href="abouhtml" class="more-btn">
+                  <div className="text-center">
+                    <a href="/signup" class="more-btn">
                       Learn More <i class="bx bx-chevron-right"></i>
                     </a>
                   </div>
@@ -93,7 +95,7 @@ const HomePage = () => {
                 data-aos-delay="100"
               >
                 <div class="icon-boxes d-flex flex-column justify-content-center">
-                  <div class="row">
+                  <div className="row">
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
                         <i class="bx bx-receipt"></i>
@@ -131,8 +133,8 @@ const HomePage = () => {
           </div>
         </section>
         <section id="popular-courses" class="courses">
-          <div class="container" data-aos="fade-up">
-            <div class="section-title">
+          <div className="container" data-aos="fade-up">
+            <div className="section-title">
               <h2>Courses</h2>
               <p>Popular Courses</p>
             </div>
@@ -140,15 +142,19 @@ const HomePage = () => {
           </div>
         </section>
       </main>
+      <div>
+      <h1 style={{textAlign:"center" ,color:"black"}}>Testimonials</h1>
+        <Testimonials />
+      </div>
 
       <footer id="footer">
         <div class="footer-top">
-          <div class="container">
-            <div class="row">
+          <div className="container">
+            <div className="row">
               <div class="col-lg-3 col-md-6 footer-contact">
                 <h3>ETL Academy</h3>
                 <p>
-                  A108 Jahangir chowk <br />
+                  MA road <br />
                   lalchowk, 190001
                   <br />
                   Kashmir <br />
@@ -173,11 +179,11 @@ const HomePage = () => {
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Terms of service</a>
+                    <a href="#s">Terms of service</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Privacy policy</a>
+                    <a href="#s">Privacy policy</a>
                   </li>
                 </ul>
               </div>
@@ -187,23 +193,23 @@ const HomePage = () => {
                 <ul>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Design</a>
+                    <a href="#s">Web Design</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Development</a>
+                    <a href="#s">Web Development</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Product Management</a>
+                    <a href="#s">Product Management</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Marketing</a>
+                    <a href="#s">Marketing</a>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Graphic Design</a>
+                    <a href="#s">Graphic Design</a>
                   </li>
                 </ul>
               </div>
@@ -222,14 +228,14 @@ const HomePage = () => {
         <div class="container d-md-flex py-4">
           <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-              &copy; Copyright{" "}
+              &copy; Copyright 2022{" "}
               <strong>
                 <span>ETL Academy</span>
               </strong>
               . All Rights Reserved
             </div>
             <div class="credits">
-              Designed by <a href="https://bootstrapmade.com/">Ayan Rafiqi</a>
+              Designed by <a href="https:/.com/">ETL Academy Team</a>
             </div>
           </div>
           <div class="social-links text-center text-md-right pt-3 pt-md-0">

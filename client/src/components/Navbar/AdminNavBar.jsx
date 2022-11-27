@@ -8,10 +8,25 @@ function AdminNavBar() {
   const { logout } = useAuth();
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Container>
+      <Navbar bg="light" variant="dark">
+        <Container >
           <Navbar.Brand as={Link} to="/">
-            ETL Academy
+          <h1 class="logo me-auto">
+              ETL ACADEMY 
+              <span
+                style={{
+                  textTransform: "lowercase",
+                  color: "black",
+                  fontSize: "medium",
+                  fontWeight: "600",
+                  marginRight:"50px",
+                  marginLeft:"5px"
+                }}
+              >
+                
+                Easy to learn
+              </span>
+             </h1>
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">

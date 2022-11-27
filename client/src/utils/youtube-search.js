@@ -8,8 +8,11 @@ const YTSearch = (options, callback) => {
     key: process.env.REACT_APP_YOUTUBE_KEY,
     q: options.term,
     type: options.type || "video",
-    //topicId:"/m/01k8wb",
+    topicId:"/m/01k8wb",
   };
+  if(params.type == "video"){
+    params.videoCategoryId=27;
+  }
 
   axios
     .get(ROOT_URL, { params: params })

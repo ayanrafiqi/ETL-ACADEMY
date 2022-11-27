@@ -3,7 +3,7 @@ const route = express.Router();
 const PinnedCourses = require("../models/pinnedCourses");
 const requireAuth = require("../middleware/requireAuth");
 const adminRequireAuth = require("../middleware/adminRequireAuth");
-const pinnedCourses = require("../models/pinnedCourses");
+
 
 route.get("/pinnedCourses", requireAuth, async (req, res) => {
   let courses = await PinnedCourses.find({ user: req.user.userId });
@@ -14,9 +14,9 @@ route.get("/recommendedCourses", async (req, res) => {
   return res.send(courses);
 });
 
-route.delete("/pinnedCourses/:id", requireAuth ,async(req,res)=>{
-  await pinnedCourses.deleteOne({_id:req.params.id});
-  return res.send("Deleted Succesfully");
+route.delete("/pinnedCourses/:courseId", requireAuth ,async(req,res)=>{
+  await PinnedCourses.deleteOne({courseId:req.params.courseId});
+  return res.send("course deleted successfully");
 })
 
 

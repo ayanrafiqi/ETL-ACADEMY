@@ -25,10 +25,10 @@ export const getRecommendedCourses = (cb) => {
     });
 };
 
-export const deletePinnedCourses = (id, cb) => {
-  console.log(id);
+export const deletePinnedCourses = (courseId, cb) => {
+ // console.log(id);
   axios
-    .delete("/api/pinnedCourses/" + id)
+    .delete("/api/pinnedCourses/" + courseId)
     .then(() => {
       cb();
       Swal.fire("delete successfully");

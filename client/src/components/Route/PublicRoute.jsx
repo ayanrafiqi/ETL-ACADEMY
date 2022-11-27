@@ -4,7 +4,7 @@ export const PublicRoute = ({ children }) => {
   return (
     <>
       <PublicNavBar />
-      <div className="container mt-2">{children}</div>
+      <div className="container-fluid mt-0">{children}</div>
     </>
   );
 };
