@@ -2,6 +2,7 @@
     width: 64% !important;
     margin: auto !important;
     margin-top: 3% !important;
+    
   }
   
   .carousel .slide {
@@ -22,11 +23,12 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 6%;
-    padding-bottom: 8%;
+    padding-bottom: 10%;
     padding-left: 5%;
     padding-right: 5%;
     border: 1px solid #ddd;
     height: 286px;
+   
   }
   
   .carousel .control-dots {
@@ -43,6 +45,9 @@
     font-weight: 600;
     text-transform: uppercase;
     font-size: 17px;
+  }
+  .testimonialDiv{
+    margin-bottom: 30px;
   }
   
   .myCarousel h4 {
@@ -82,8 +87,9 @@
   
   .carousel .control-dots .dot {
     box-shadow: none !important;
-    background: #454545 !important;
+    background: whitesmoke !important;
     outline: 0;
+    margin-bottom: 2%;
   }
   
   .carousel.carousel-slider .control-arrow {

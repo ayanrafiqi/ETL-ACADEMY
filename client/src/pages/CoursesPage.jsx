@@ -3,6 +3,8 @@ import YoutubePlaylist from "../components/youtube/YoutubePlaylist";
 import YoutubeVideo from "../components/youtube/YoutubeVideo";
 import { addSearchHistory } from "../services/searchHistoryService";
 import YTSearch from "../utils/youtube-search";
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+
 const CoursesPage = () => {
   const apiKey = process.env.REACT_APP_YOUTUBE_KEY;
 
@@ -36,6 +38,7 @@ const CoursesPage = () => {
           <input
             type="text"
             className="form-control"
+            placeholder="Search Courses..."
             value={keyword}
             onChange={(e) => {
               setKeyword(e.target.value);
@@ -54,7 +57,7 @@ const CoursesPage = () => {
             className="btn btn-primary"
             onClick={videoSearch}
           >
-            Search
+            <SearchRoundedIcon/> 
           </button>
         </div>
       </div>

@@ -8,7 +8,7 @@ import "../assets/vendor/bootstrap-icons/bootstrap-icons.css";
 import "../assets/vendor/boxicons/css/boxicons.min.css";
 import "../assets/vendor/remixicon/remixicon.css";
 import "../assets/vendor/swiper/swiper-bundle.min.css";
-import Testimonials from "../components/Home/Testomonials";
+import Testimonials from "../components/Home/Testimonials";
 
 const HomePage = () => {
   return (
@@ -142,10 +142,13 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-      <div>
-      <h1 style={{textAlign:"center" ,color:"black"}}>Testimonials</h1>
-        <Testimonials />
-      </div>
+      <div className="container" data-aos="fade-up">
+            <div className="section-title">
+              <h2>What Says Our Students</h2>
+              <p>Testimonials</p>
+            </div>
+            <Testimonials />
+          </div>
 
       <footer id="footer">
         <div class="footer-top">
@@ -228,7 +231,7 @@ const HomePage = () => {
         <div class="container d-md-flex py-4">
           <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-              &copy; Copyright 2022{" "}
+              &copy; Copyright ⓒ {new Date().getFullYear()}{" "}
               <strong>
                 <span>ETL Academy</span>
               </strong>

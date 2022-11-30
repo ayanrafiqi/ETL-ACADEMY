@@ -31,7 +31,7 @@ export const deletePinnedCourses = (courseId, cb) => {
     .delete("/api/pinnedCourses/" + courseId)
     .then(() => {
       cb();
-      Swal.fire("delete successfully");
+      Swal.fire(" Playlist Removed Successfully");
     })
     .catch((err) => {
       Swal.fire(err.response.data);

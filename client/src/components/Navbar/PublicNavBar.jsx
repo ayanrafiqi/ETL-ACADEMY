@@ -1,20 +1,28 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+
 import "../../css/navbar-style.css";
 
+
+const header={
+  fontFamily: "Bona Nova, serif",
+  fontFamily: "PT Sans, sans-serif",
+  fontSize:"33px"
+}
 function PublicNavBar() {
   const { logout, isAdmin, isAuthenticated } = useAuth();
   return (
     <>
       <Navbar bg="light" variant="dark">
-        <Container className="">
+        <Container >
           <Navbar.Brand as={Link} to="/">
-            <h1 class="logo me-auto">
-              ETL ACADEMY{" "}
-              <span
+            <h1 class="logo me-auto" style={header} >
+              ETL ACADEMY
+              {/* <span
                 style={{
                   textTransform: "lowercase",
                   color: "black",
@@ -24,7 +32,7 @@ function PublicNavBar() {
               >
                 {" "}
                 Easy to learn
-              </span>{" "}
+              </span>{" "} */}
             </h1>
           </Navbar.Brand>
           <Nav>
@@ -55,7 +63,7 @@ function PublicNavBar() {
                 <Nav.Link as={Link} to="/myfeedback">
                   Feedback
                 </Nav.Link>
-                <Nav.Link onClick={logout}>Log out</Nav.Link>
+                <Nav.Link onClick={logout}>Log out<LogoutRoundedIcon/></Nav.Link>
                 {isAdmin() && (
                   <Nav.Link as={Link} to="/users">
                     Admin Panel

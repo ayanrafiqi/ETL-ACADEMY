@@ -1,3 +1,13 @@
+.signup-bg {
+	background-image: url("../assets/img/events-2.jpg");
+	width: 1350px;
+	height: 593px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter: blur(5px);
+  }
+
+
 form {
 	position: absolute;
 	top: 52%;

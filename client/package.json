@@ -4,6 +4,10 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.15",
+    "@mui/lab": "^5.0.0-alpha.109",
+    "@mui/material": "^5.10.15",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,6 +27,7 @@
     "react-star-ratings": "^2.3.0",
     "remixicon-react": "^1.0.0",
     "scss": "^0.2.4",
+    "start": "^5.1.0",
     "sweetalert2": "^11.4.32",
     "web-vitals": "^2.1.4"
   },

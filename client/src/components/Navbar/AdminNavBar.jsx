@@ -13,7 +13,7 @@ function AdminNavBar() {
           <Navbar.Brand as={Link} to="/">
           <h1 class="logo me-auto">
               ETL ACADEMY 
-              <span
+              {/* <span
                 style={{
                   textTransform: "lowercase",
                   color: "black",
@@ -25,7 +25,7 @@ function AdminNavBar() {
               >
                 
                 Easy to learn
-              </span>
+              </span> */}
              </h1>
           </Navbar.Brand>
           <Nav className="me-auto">

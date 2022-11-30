@@ -28,7 +28,7 @@ export const deleteSearchHistory = (id, cb) => {
     .delete("/api/searchHistory/" + id)
     .then(() => {
       cb();
-      Swal.fire("delete successfully");
+      Swal.fire("Deleted successfully");
     })
     .catch((err) => {
       Swal.fire(err.response.data);

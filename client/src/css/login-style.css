@@ -1,14 +1,24 @@
+.login-bg {
+  background-image: url("../assets/img/events-2.jpg");
+  width: 1350px;
+  height: 593px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+}
+
 form {
   position: absolute;
   top: 52%;
   left: 50%;
   transform: translate(-49%, -49%);
   padding: 22px;
-  background-color: #f4f3ef;
+  background-color: whitesmoke;
   border-style: initial;
   border-radius: 10px;
-  box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.16);
+  box-shadow: 40px 40px 40px rgba(0, 0, 0, 0.16);
   width: 400px;
+  filter: none;
 }
 
 form .btn {
@@ -19,8 +29,8 @@ form .btn {
   margin: 0 auto;
   padding: 0.9rem 2.5rem;
   text-align: center;
-  background-color:  #5fcf80;
-  padding:20px;
+  background-color: #5fcf80;
+  padding: 20px;
   color: #fff;
   border-radius: 6px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);

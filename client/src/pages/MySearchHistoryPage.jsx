@@ -2,6 +2,7 @@ import moment from "moment";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import {
   deleteSearchHistory,
   getSearchHistory,
@@ -43,7 +44,7 @@ const MySearchHistoryPage = () => {
                       deleteSearchHistory(item._id, getData);
                     }}
                   >
-                    Delete
+                    <DeleteOutlineIcon/>
                   </Button>
                 </td>
               </tr>

@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/esm/Table";
 import { Link } from "react-router-dom";
 import { changeUserStatus, getUsers } from "../services/authService";
+import BlockRoundedIcon from '@mui/icons-material/BlockRounded';
 
 const UsersPage = () => {
   const fetchUsers = () => {
@@ -63,7 +64,7 @@ const UsersPage = () => {
                         );
                       }}
                     >
-                      Block
+                      Block <BlockRoundedIcon/> 
                     </Button>
                   )}
                 </td>

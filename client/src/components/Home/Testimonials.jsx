@@ -3,7 +3,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import "../../css/testimonials-style.css";
 
-const Testomonials = () => {
+const Testimonials = () => {
+  // const [feedbacks, setFeedbacks] = useState([]);
+  // useEffect(() => {
+  //   getAllFeedbacks(setFeedbacks);
+  // }, []);
+
   return (
         <Carousel
         showArrows={true}
@@ -13,8 +18,8 @@ const Testomonials = () => {
         autoPlay={true}
         interval={6100}
         >
-        <div>
-          <img src="../../assets/img/testimonials/testimonials-2.jpg" alt=""/> 
+        <div className="testimonialDiv">
+          <img src="../Home/testimonials/testimonials-1.jpg" alt=""/> 
           <div className="myCarousel">
             <h3>Ayan Rafiqi</h3>
             <h4>Developer</h4>
@@ -27,7 +32,7 @@ const Testomonials = () => {
         </div>
 
         <div>
-        <img src="../../assets/img/testimonials/testimonials-4.jpg" alt=""/>
+        <img src="../Home/testimonials/testimonials-2.jpg" alt=""/>
           <div className="myCarousel">
             <h3>Malik Zulfikar</h3>
             <h4>Designer</h4>
@@ -39,7 +44,7 @@ const Testomonials = () => {
         </div>
 
         <div>
-        <img src="../../assets/img/testimonials/testimonials-3.jpg" alt=""/>
+        <img src="../Home/testimonials/testimonials-3.jpg" alt=""/>
           <div className="myCarousel">
             <h3>Syed Tajamul</h3>
             <h4>Student</h4>
@@ -54,7 +59,7 @@ const Testomonials = () => {
     );
   }
     
-export default Testomonials
+export default Testimonials
 
 
 

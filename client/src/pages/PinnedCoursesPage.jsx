@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import YoutubePlaylist from "../components/youtube/YoutubePlaylist";
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+
 import {
   deletePinnedCourses,
   getPinnedCourses,
@@ -26,7 +28,7 @@ const PinnedCoursesPage = () => {
     });
   };
   useEffect(getData,[]);
-  
+
   return (
     <div>
       <h2>My Playlist</h2>
@@ -34,6 +36,8 @@ const PinnedCoursesPage = () => {
         <div>
           {data.items.map(({ id, snippet = {} }) => (
             <>
+              <YoutubePlaylist snippet={snippet} id={id} key={id} />
+
               <Button
                 style={{
                   position: "absolute",
@@ -44,10 +48,8 @@ const PinnedCoursesPage = () => {
                   deletePinnedCourses(id,getData);
                 }}
               >
-                Remove
+                <DeleteOutlineRoundedIcon/>
               </Button>
-
-              <YoutubePlaylist snippet={snippet} id={id} key={id} />
             </>
           ))}
         </div>

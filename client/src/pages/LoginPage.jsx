@@ -16,8 +16,8 @@ const LoginPage = () => {
   const auth = useAuth();
 
   return (
-    <div className="container">
-   
+    <div>
+      <div className="login-bg" ></div>
       <Form className="form" 
         onSubmit={(e) => {
           e.preventDefault();

@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import { useAuth } from "../../contexts/AuthContext";
 
 
@@ -14,7 +15,7 @@ function ProtectedNavBar() {
           <Navbar.Brand as={Link} to="/">
           <h1 class="logo me-auto">
               ETL ACADEMY
-              <span
+              {/* <span
                 style={{
                   textTransform: "lowercase",
                   color: "black",
@@ -24,7 +25,7 @@ function ProtectedNavBar() {
               >
                 
                 Easy to learn
-              </span>
+              </span> */}
              </h1>
           </Navbar.Brand>
           <Nav className="me-auto">
@@ -46,7 +47,7 @@ function ProtectedNavBar() {
             <Nav.Link as={Link} to="/myfeedback">
               Feedback
             </Nav.Link>
-            <Nav.Link onClick={logout}>Log out</Nav.Link>
+            <Nav.Link onClick={logout}>Log Out<LogoutRoundedIcon/></Nav.Link>
             {isAdmin() && (
               <Nav.Link as={Link} to="/users">
                 Admin Panel

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import FullscreenExitRoundedIcon from '@mui/icons-material/FullscreenExitRounded';
 import { pinCourse } from "../../services/pinnedCoursesService";
 
 const YoutubePlaylist = ({ id, snippet, showPin }) => {
@@ -20,7 +22,7 @@ const YoutubePlaylist = ({ id, snippet, showPin }) => {
         <h6>{channelTitle}</h6>
         <p className="text-truncate">{description}</p>
         <Link to={"/courseDetails/" + id} className="text-decoration-none">
-          VIEW FULL PLAYLIST
+        <FullscreenExitRoundedIcon/>VIEW FULL PLAYLIST
         </Link>
         {showPin && (
           <div>
@@ -31,7 +33,7 @@ const YoutubePlaylist = ({ id, snippet, showPin }) => {
                 pinCourse({ courseId: id }, () => {});
               }}
             >
-              Pin Course
+            <PlaylistAddIcon/> Pin Course
             </a>
           </div>
         )}

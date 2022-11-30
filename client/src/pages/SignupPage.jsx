@@ -1,9 +1,10 @@
+import  "../css/signup-syle.css";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useAuth } from "../contexts/AuthContext";
 import { signup } from "../services/authService";
-import  "../css/signup-syle.css";
+
 
 const SignupPage = () => {
   const [model, setModel] = useState({
@@ -16,8 +17,8 @@ const SignupPage = () => {
   const auth = useAuth();
 
   return (
-    <div className="container">
-      
+    <div >
+      <div className="signup-bg"></div>
       <Form 
         onSubmit={(e) => {
           e.preventDefault();

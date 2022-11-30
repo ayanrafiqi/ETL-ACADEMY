@@ -16,7 +16,7 @@ route.get("/recommendedCourses", async (req, res) => {
 
 route.delete("/pinnedCourses/:courseId", requireAuth ,async(req,res)=>{
   await PinnedCourses.deleteOne({courseId:req.params.courseId});
-  return res.send("course deleted successfully");
+  return res.send("Course Deleted successfully");
 })
 
 
