@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 function AdminNavBar() {
   const { logout } = useAuth();
@@ -38,7 +39,7 @@ function AdminNavBar() {
             <Nav.Link as={Link} to="/allfeedbacks">
               Feedbacks
             </Nav.Link>
-            <Nav.Link onClick={logout}>Log out</Nav.Link>
+            <Nav.Link onClick={logout}>Log out<LogoutRoundedIcon/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

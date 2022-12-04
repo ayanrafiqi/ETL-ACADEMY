@@ -36,13 +36,11 @@ const PinnedCoursesPage = () => {
         <div>
           {data.items.map(({ id, snippet = {} }) => (
             <>
-              <YoutubePlaylist snippet={snippet} id={id} key={id} />
-
               <Button
                 style={{
                   position: "absolute",
-                  left: "1100px",
-                  buttom: "300px",
+                  left: "1150px",
+                
                 }}
                 onClick={() => {
                   deletePinnedCourses(id,getData);
@@ -50,6 +48,7 @@ const PinnedCoursesPage = () => {
               >
                 <DeleteOutlineRoundedIcon/>
               </Button>
+              <YoutubePlaylist snippet={snippet} id={id} key={id} />
             </>
           ))}
         </div>

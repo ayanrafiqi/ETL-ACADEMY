@@ -12,7 +12,7 @@ const RecommendCourses = () => {
             getPlaylists(
               d.map((x) => x.courseId),
               (res) => {
-                console.log(res);
+                //console.log(res);
                 setData(res.items);
               }
             );

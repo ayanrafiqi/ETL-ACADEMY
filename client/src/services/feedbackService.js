@@ -49,6 +49,16 @@ export const getMyFeedbacks = (cb) => {
     });
 };
 
+export const getTestimonials = (cb) => {
+  axios
+    .get("/api/allTestimonials")
+    .then(({ data }) => cb(data))
+
+    .catch((err) => {
+      Swal.fire(err.response.data);
+    });
+};
+
 export const getAllFeedbacks = (cb) => {
   axios
     .get("/api/allFeedbacks")

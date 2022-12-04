@@ -35,7 +35,7 @@ const LoginPage = () => {
             value={model.email}
             onChange={(e) => {
               setModel({ ...model, email: e.target.value });
-            }}
+            }} 
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.

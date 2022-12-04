@@ -5,6 +5,7 @@ export const login = (model, cb) => {
   axios
     .post("/api/login", model)
     .then(({ data }) => {
+      console.log(data);
       cb(data);
     })
     .catch((err) => {

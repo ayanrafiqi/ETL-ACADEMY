@@ -15,7 +15,12 @@ route.get("/feedbacksByUserId/:userId", adminRequireAuth, async (req, res) => {
 });
 
 route.get("/allfeedbacks", adminRequireAuth, async (req, res) => {
-  let feedbacks = await Feedback.find({}).populate("user", "email");
+  let feedbacks = await Feedback.find({}).populate("profile", "name");
+  return res.send(feedbacks);
+});
+route.get("/allTestimonials", async (req, res) => {
+  let feedbacks = await Feedback.find({}).limit(3).populate({
+  path:'user',select:'username role'});
   return res.send(feedbacks);
 });
 

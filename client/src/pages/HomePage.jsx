@@ -2,7 +2,6 @@ import React from "react";
 import RecommendCourses from "../components/Home/RecommendCourses";
 import "../assets/style.css";
 import "../assets/vendor/animate.css/animate.min.css";
-// import '../assets/vendor/aos/aos.css';
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/vendor/bootstrap-icons/bootstrap-icons.css";
 import "../assets/vendor/boxicons/css/boxicons.min.css";
@@ -231,14 +230,14 @@ const HomePage = () => {
         <div class="container d-md-flex py-4">
           <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-              &copy; Copyright ⓒ {new Date().getFullYear()}{" "}
+              &copy; Copyright{new Date().getFullYear()}{" "}
               <strong>
                 <span>ETL Academy</span>
               </strong>
               . All Rights Reserved
             </div>
             <div class="credits">
-              Designed by <a href="https:/.com/">ETL Academy Team</a>
+              Designed by <a href="https:/.com/">Ayan Rafiqi</a>
             </div>
           </div>
           <div class="social-links text-center text-md-right pt-3 pt-md-0">
