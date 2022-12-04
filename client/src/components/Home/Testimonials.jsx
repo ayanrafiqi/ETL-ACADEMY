@@ -21,7 +21,7 @@ const Testimonials = () => {
     autoPlay={true}
     interval={6100}
     >
-    {console.log("test",testimonials)}
+  
     {testimonials.map((item)=>(
         <div className="testimonialDiv">
            <img src="../Home/testimonials/testimonials-1.jpg" alt=""/>  
